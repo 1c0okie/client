@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const http = axios.create({
-  baseURL: '/api', // Vì đã cấu hình Proxy trong vite.config.js, nên chỉ cần /api
+  baseURL: import.meta.env.VITE_API_URL, 
   headers: {
     'Content-Type': 'application/json',
   },

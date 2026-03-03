@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from "path";
-// https://vite.dev/config/
+
 export default defineConfig({
-   plugins: [react()],
+  plugins: [react()],
+  base: '/', // Đảm bảo đường dẫn asset đúng khi deploy
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
@@ -11,12 +12,15 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      // Bất kỳ request nào bắt đầu bằng /api sẽ được chuyển hướng đến port 5000
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://server-6kk9.onrender.com',
         changeOrigin: true,
         secure: false,
       },
     },
   },
+  build: {
+    // Tùy chọn: Gom font vào một thư mục riêng cho gọn trong dist
+    assetsInlineLimit: 4096, // File nhỏ hơn 4kb sẽ được convert sang base64
+  }
 })
