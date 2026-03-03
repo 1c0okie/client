@@ -1,0 +1,254 @@
+/* src/pages/main/Shop/ShopPage.css */
+
+.shop-page {
+    display: flex;
+    gap: 30px;
+    padding-bottom: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Sidebar cố định độ rộng */
+  .shop-sidebar {
+    position: sticky;       /* Kích hoạt chế độ dính */
+    top: 120px;              /* Cách đỉnh màn hình 90px (70px Header + 20px khoảng thở) */
+    height: fit-content;
+    width: 250px;
+    flex-shrink: 0;
+  }
+  
+  .shop-content {
+    flex: 1;
+  }
+  
+  /* Toolbar: Thanh ngang chứa số lượng và sort */
+  .shop-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+
+  }
+  
+  .result-count {
+    margin: 0;
+    color: #555;
+    font-size: 14px;
+  }
+  
+  .sort-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .sort-wrapper label {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .sort-select {
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  .sort-select option:hover {
+  background-color: #007BFF;
+}
+
+  
+  /* --- GRID 4 CỘT --- */
+  .shop-grid {
+    display: grid;
+    /* repeat(4, 1fr): Chia 4 cột đều nhau */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  /* No Result State */
+  .no-result {
+    text-align: center;
+    padding: 50px;
+    background: white;
+    border-radius: 8px;
+  }
+  .no-result p {
+    color: #777;
+    margin-top: 15px;
+  }
+  
+  /* RESPONSIVE */
+  
+  /* Tablet: 3 cột */
+  @media (max-width: 992px) {
+    .shop-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .shop-page {
+      flex-direction: column; /* Sidebar đẩy lên trên hoặc ẩn đi tùy thiết kế */
+    }
+    .shop-sidebar {
+      width: 100%; /* Sidebar full màn hình */
+    }
+  }
+  
+  /* Mobile: 2 cột */
+  @media (max-width: 576px) {
+    .shop-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    
+    .shop-toolbar {
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+  }
+  /* src/pages/main/Shop/ShopPage.css */
+
+/* ... (Giữ các phần cũ) ... */
+
+/* TOOLBAR */
+.shop-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* Căn đáy để text và dropdown thẳng hàng */
+  margin-bottom: 25px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.shop-title {
+  font-size: 24px;
+  color: #333;
+  margin: 0 0 5px 0;
+}
+
+.result-count {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/* --- CUSTOM DROPDOWN STYLE --- */
+.sort-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative; /* Quan trọng để dropdown con định vị */
+  z-index: 100; /* Để dropdown đè lên sách bên dưới */
+}
+
+.sort-wrapper label {
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+}
+
+.custom-dropdown {
+  position: relative;
+  width: 200px;
+  height: 40px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.custom-dropdown:hover {
+  border-color: #007bff;
+}
+
+.custom-dropdown.open {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.current-sort {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+.dropdown-arrow {
+  font-size: 12px;
+  color: #888;
+  transition: transform 0.2s;
+}
+
+.custom-dropdown.open .dropdown-arrow {
+  transform: rotate(180deg); /* Xoay mũi tên khi mở */
+}
+
+/* LIST XỔ XUỐNG */
+.dropdown-list {
+  position: absolute;
+  top: 110%; /* Cách ô chính 1 chút */
+  right: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.1s;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: #007bff;
+}
+
+.dropdown-item.selected {
+  background-color:#e7f1ff;
+  color: #007bff;
+  font-weight: 500;
+}
+
+.check-icon {
+  font-size: 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .shop-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .sort-wrapper {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .custom-dropdown {
+    flex: 1; /* Dropdown giãn full trên mobile */
+  }
+}

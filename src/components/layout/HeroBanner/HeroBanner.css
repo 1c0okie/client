@@ -1,0 +1,101 @@
+/* Container chính: Cắt những phần thừa */
+.banner-slider {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Chiều cao cố định (Bạn có thể tăng lên 500px nếu muốn to hơn) */
+    overflow: hidden; /* Quan trọng: Ẩn các ảnh đang chờ bên cạnh */
+    border-radius: 8px; /* Bo góc nhẹ cho đẹp */
+    margin-bottom: 30px; /* Cách nội dung bên dưới */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  /* Wrapper chứa tất cả ảnh xếp hàng ngang */
+  .banner-wrapper {
+    
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out; /* Hiệu ứng trượt mượt mà */
+  }
+  
+  /* Từng slide đơn lẻ */
+  .banner-slide {
+    min-width: 100%; /* Mỗi slide chiếm trọn 100% khung hình */
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  /* Ảnh banner */
+  .banner-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cắt ảnh vừa khung mà không bị méo */
+    display: block;
+  }
+  
+  /* --- NÚT ĐIỀU HƯỚNG --- */
+  .banner-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3); /* Nền đen mờ */
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: all 0.3s;
+    opacity: 0; /* Mặc định ẩn, hover vào mới hiện */
+  }
+  
+  .banner-slider:hover .banner-btn {
+    opacity: 1;
+  }
+  
+  .banner-btn:hover {
+    background: rgba(255, 66, 78, 0.9); /* Hover vào đổi màu đỏ chủ đạo */
+  }
+  
+  .banner-btn.left { left: 20px; }
+  .banner-btn.right { right: 20px; }
+  
+  /* --- DẤU CHẤM TRÒN --- */
+  .banner-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .dot.active {
+    background: white;
+    transform: scale(1.2);
+  }
+  
+  /* RESPONSIVE MOBILE */
+  @media (max-width: 768px) {
+    .banner-slider {
+      height: 200px; /* Mobile thì cho banner thấp lại */
+      border-radius: 0; /* Mobile thì tràn viền luôn không cần bo góc */
+    }
+    .banner-btn {
+      width: 30px; height: 30px; font-size: 14px;
+    }
+  }

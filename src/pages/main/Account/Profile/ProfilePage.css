@@ -1,0 +1,129 @@
+/* src/pages/main/Profile/ProfilePage.css */
+
+.profile-page {
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+.page-title {
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Layout chia 2 cột nếu màn hình to, 1 cột nếu màn hình nhỏ */
+.profile-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr; /* Cột thông tin to hơn cột mật khẩu */
+  gap: 30px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .profile-layout {
+    grid-template-columns: 1fr; /* Mobile: Xếp chồng lên nhau */
+  }
+}
+
+/* Style cho từng khối (Section) */
+.profile-section {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+}
+
+.section-header {
+  font-size: 18px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+  color: #333;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #555;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #ff424e;
+  outline: none;
+}
+
+.input-disabled {
+  background-color: #f9f9f9;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.note {
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Buttons */
+.btn-save {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff; /* Màu xanh cho nút Lưu thông tin */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-save:hover {
+  background-color: #0056b3;
+}
+
+.btn-security {
+  background-color: #ff424e; /* Màu đỏ cho nút Đổi mật khẩu */
+}
+
+.btn-security:hover {
+  background-color: #e03a45;
+}
+
+/* Alert Messages */
+.alert {
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.alert.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alert.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}

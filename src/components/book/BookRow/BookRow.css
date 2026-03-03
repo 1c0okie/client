@@ -1,0 +1,156 @@
+/* Container tổng */
+.book-row {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+/* Tiêu đề đẹp hơn */
+.row-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 15px;
+}
+
+.title-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+  white-space: nowrap;
+}
+
+.title-line {
+  height: 2px;
+  background: #eee;
+  flex: 1; /* Tự động kéo dài hết khoảng trống */
+}
+
+.view-all {
+  font-size: 18px;
+  color: #555;
+  text-decoration: none;
+  font-weight: 500;
+
+  position: relative;
+  display: inline-block;
+}
+
+.view-all::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s ease;
+}
+
+.view-all:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Khu vực bao quanh slider */
+.row-container {
+  position: relative;
+  /* padding: 0 10px; */ /* Thêm padding nếu muốn nút nằm ngoài hẳn */
+}
+
+/* Khu vực cuộn (Scroll Area) */
+.book-list-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 4px; /* Padding để bóng đổ (box-shadow) không bị cắt */
+  
+  /* Scroll Snap: Giúp trượt dính từng ô */
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  /* Ẩn thanh cuộn */
+  scrollbar-width: none; /* Firefox */
+}
+
+.book-list-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Item Wrapper: Tính toán chia cột responsive */
+.book-item-snap {
+  scroll-snap-align: start; /* Điểm dính */
+  flex-shrink: 0;
+  flex-grow: 0;   /* Không được phép phình to */
+  
+  /* Mặc định Desktop: 5 cột */
+  width: calc((100% - (16px * 4)) / 6 );
+}
+
+/* Nút điều hướng (Tròn, trắng, nổi) */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  opacity: 0; /* Mặc định ẩn nút */
+  pointer-events: none; /* Không bấm được khi ẩn */
+}
+
+/* Chỉ hiện nút khi di chuột vào vùng slider */
+.row-container:hover .scroll-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.scroll-btn:hover {
+  background: #ff424e;
+  color: white;
+  border-color: #ff424e;
+  transform: translateY(-50%) scale(1.1); /* Phóng to nhẹ */
+}
+
+.scroll-btn.left {
+  left: -22px; /* Đặt nửa trong nửa ngoài */
+}
+
+.scroll-btn.right {
+  right: -22px;
+}
+
+/* RESPONSIVE */
+
+/* Tablet (iPad): 3 cột */
+@media (max-width: 992px) {
+  .book-item-snap {
+    width: calc((100% - (16px * 2)) / 3);
+  }
+}
+
+/* Mobile: 2 cột hoặc 1.5 cột */
+@media (max-width: 576px) {
+  .book-item-snap {
+    /* Hiển thị khoảng 2 cột rưỡi để người dùng biết còn có thể lướt tiếp */
+    width: calc((100% - 16px) / 2.2); 
+  }
+  
+  /* Mobile thì ẩn luôn nút, dùng tay vuốt sướng hơn */
+  .scroll-btn {
+    display: none !important; 
+  }
+}

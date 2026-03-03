@@ -1,0 +1,20 @@
+.ui-breadcrumb {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #666;
+}
+.breadcrumb-item a {
+  text-decoration: none;
+  color: #007bff;
+}
+.breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+.breadcrumb-item .active {
+  color: #333;
+  font-weight: 500;
+}
+.separator {
+  margin: 0 8px;
+  color: #ccc;
+}

@@ -1,0 +1,161 @@
+/* Container chính: Chiếm phần còn lại của Header, nhưng không quá rộng */
+.search-wrapper {
+    position: relative; /* Để dropdown con định vị theo cái này */
+    flex: 1;            /* Co giãn linh hoạt */
+    max-width: 600px;   /* Không bè ra quá to trên màn hình lớn */
+    margin: 0 40px;     /* Cách Logo và Menu một khoảng thoáng */
+    z-index: 2000;      /* Đảm bảo nổi lên trên các thành phần khác */
+  }
+  
+  /* Thanh tìm kiếm (Input + Button) */
+  .search-bar {
+    display: flex;
+    height: 40px;       /* Chiều cao chuẩn */
+    overflow: hidden;   /* Để input và button nằm gọn trong border-radius */
+  }
+  
+  /* Ô nhập liệu */
+  .search-bar input {
+    flex: 1; /* Chiếm hết chiều rộng còn lại */
+    border: 1px solid #e0e0e0;
+    padding: 10px 40px 10px 24px;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.2s;
+    border-radius: 20px;
+  }
+  
+  .search-bar input:focus {
+    border-color: #ff424e; /* Khi bấm vào thì viền sáng màu chủ đạo */
+  }
+  
+  /* Nút tìm kiếm (Kính lúp) */
+  .search-bar button {
+    position: absolute;
+     right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    width: 50px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  
+  .search-bar button:hover {
+   color: #333;/* Đậm hơn chút khi di chuột */
+  }
+  
+  /* Icon kính lúp (Giả lập bằng CSS hoặc dùng Emoji nếu chưa có icon) */
+  .search-bar button {
+    font-size: 18px;
+    color: #696969;
+  }
+  /* Lưu ý: Nếu bạn dùng react-icons thì bỏ đoạn ::before trên và style trực tiếp vào thẻ svg */
+  
+  /* --- DROPDOWN KẾT QUẢ --- */
+  .search-dropdown {
+    position: absolute;
+    top: 48px; /* Cách thanh search 1 chút (40px height + 8px gap) */
+    left: 0;
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Bóng đổ sâu hơn để tạo cảm giác trôi nổi */
+    border: 1px solid #f0f0f0;
+    overflow: hidden;
+    animation: slideDown 0.2s ease-out;
+  }
+  
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Từng dòng sản phẩm */
+  .search-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-bottom: 1px solid #f5f5f5;
+    transition: background 0.1s;
+  }
+  
+  .search-item:hover {
+    background-color: #f8faff; /* Màu nền xanh nhạt khi hover */
+  }
+  
+  .search-item:last-child {
+    border-bottom: none;
+  }
+  
+  /* Ảnh nhỏ */
+  .search-item img {
+    width: 40px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 12px;
+    border: 1px solid #eee;
+  }
+  
+  /* Thông tin text */
+  .search-item-info {
+    flex: 1;
+    overflow: hidden; /* Để xử lý text dài */
+  }
+  
+  .search-item-title {
+    font-size: 14px;
+    color: #333;
+    margin: 0 0 4px;
+    white-space: nowrap;      /* Không xuống dòng */
+    overflow: hidden;         /* Ẩn phần thừa */
+    text-overflow: ellipsis;  /* Thêm dấu ... */
+    font-weight: 500;
+  }
+  
+  .search-item-price {
+    font-size: 13px;
+    color: #ff424e; /* Giá màu đỏ */
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  /* Dòng "Xem thêm..." */
+  .search-view-more {
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+    color: #007bff;
+    cursor: pointer;
+    background: #fdfdfd;
+    font-weight: 500;
+    border-top: 1px solid #eee;
+  }
+  
+  .search-view-more:hover {
+    background: #f0f8ff;
+    text-decoration: underline;
+  }
+  
+  /* Không tìm thấy */
+  .search-no-result {
+    padding: 30px;
+    text-align: center;
+    color: #888;
+    font-style: italic;
+  }
+  
+  /* Responsive Mobile: Ẩn bớt margin */
+  @media (max-width: 768px) {
+    .search-wrapper {
+      margin: 0 15px;
+      max-width: 100%;
+    }
+  }

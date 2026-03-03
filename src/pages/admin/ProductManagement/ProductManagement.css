@@ -1,0 +1,90 @@
+/* src/pages/admin/ProductManagement/ProductManagement.css */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.btn-add-new {
+  background-color: #48bb78; /* Màu xanh lá */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.table-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  overflow-x: auto; /* Cuộn ngang nếu bảng quá rộng */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #edf2f7;
+}
+
+th {
+  background-color: #f7fafc;
+  color: #718096;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.table-thumb {
+  width: 40px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
+
+.fw-bold {
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.badge-category {
+  background: #ebf8ff;
+  color: #3182ce;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Nút Sửa/Xóa */
+.btn-action {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-right: 8px;
+  transition: opacity 0.2s;
+}
+
+.btn-action.edit {
+  background-color: #edf2f7;
+  color: #2d3748;
+}
+
+.btn-action.delete {
+  background-color: #fff5f5;
+  color: #e53e3e;
+}
+
+.btn-action:hover {
+  opacity: 0.8;
+}

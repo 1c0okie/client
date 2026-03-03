@@ -1,0 +1,192 @@
+/* src/pages/main/About/AboutPage.css */
+
+.about-page {
+    padding-bottom: 0;
+  }
+  
+  /* 1. HERO SECTION */
+  .about-hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1507842217343-583bb7260b66?auto=format&fit=crop&q=80&w=2000');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-bottom: 60px;
+  }
+  
+  .hero-content h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
+  .hero-content p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+  }
+  
+  /* CHUNG CHO CÁC SECTION */
+  .about-section {
+    margin-bottom: 80px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+  }
+  .section-title.center {
+    display: block;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  /* 2. STORY SECTION */
+  .story-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+  
+  .story-img img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  
+  .story-text p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  
+  .stats-grid {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+  }
+  
+  .stat-item strong {
+    display: block;
+    font-size: 28px;
+    color: #ff424e;
+  }
+  .stat-item span {
+    color: #777;
+    font-size: 14px;
+  }
+  
+  /* 3. VALUES SECTION */
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+  
+  .value-card {
+    text-align: center;
+    padding: 30px 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: #ff424e;
+  }
+  
+  .icon-box {
+    font-size: 30px;
+    color: #ff424e;
+    margin-bottom: 15px;
+  }
+  
+  .value-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .value-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+  }
+  
+  /* 4. TEAM SECTION */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  
+  .team-member {
+    text-align: center;
+  }
+  
+  .team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .team-member h4 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  .team-member span {
+    color: #777;
+    font-size: 14px;
+  }
+  
+  /* 5. CTA SECTION */
+  .about-cta {
+    background: #f8f9fa;
+    text-align: center;
+    padding: 80px 0;
+    margin-top: 50px;
+  }
+  
+  .about-cta h2 {
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .btn-cta {
+    background: #ff424e;
+    color: white;
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    font-size: 16px;
+    transition: background 0.2s;
+  }
+  .btn-cta:hover {
+    background: #e03a45;
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 992px) {
+    .story-section { grid-template-columns: 1fr; }
+    .values-grid { grid-template-columns: 1fr 1fr; }
+    .team-grid { grid-template-columns: 1fr; }
+  }
+  
+  @media (max-width: 576px) {
+    .values-grid { grid-template-columns: 1fr; }
+  }

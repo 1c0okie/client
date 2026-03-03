@@ -1,0 +1,125 @@
+.featured-categories-container {
+    margin: 40px 0;
+    padding: 0 10px;
+  }
+  
+  .featured-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #333;
+    text-transform: uppercase;
+    border-left: 5px solid #ff424e;
+    padding-left: 15px;
+  }
+  
+  /* --- LƯỚI 4 CỘT --- */
+  .categories-grid {
+    display: grid;
+    /* Chia đúng 4 cột đều nhau */
+    grid-template-columns: repeat(4, 1fr); 
+    /* Khoảng cách giữa các ảnh đều nhau */
+    gap: 20px; 
+  }
+  
+  /* Khối bao quanh từng mục */
+  .cat-item {
+    position: relative; /* Để định vị chữ tuyệt đối bên trong */
+    width: 100%;
+    aspect-ratio: 16/9; /* Tỉ lệ ảnh chữ nhật (giống Youtube thumbnail) cho to đẹp */
+    /* Hoặc dùng height: 180px; nếu muốn cố định chiều cao */
+    
+    border-radius: 12px; /* Bo góc khung hình */
+    overflow: hidden;    /* Cắt phần ảnh thừa khi zoom */
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  
+  /* Wrapper ảnh (bỏ border/radius cũ đi để ảnh tràn viền) */
+  .cat-img-wrapper {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+  }
+  
+  /* Ảnh nền */
+  .cat-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Zoom mượt */
+  }
+  
+  /* --- LỚP PHỦ (OVERLAY) --- */
+  /* Lớp này luôn nằm đè lên ảnh để làm nền cho chữ dễ đọc */
+  .cat-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.25); /* Mặc định hơi tối nhẹ */
+    z-index: 1;
+    transition: background 0.3s ease;
+  }
+  
+  /* --- TÊN CHỦ ĐỀ (NẰM GIỮA ẢNH) --- */
+  .cat-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Căn giữa tuyệt đối */
+    z-index: 2; /* Nằm trên lớp phủ */
+    
+    width: 90%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 800; /* Chữ đậm */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    color: #e0e0e0; /* Màu mặc định (xám trắng nhạt) */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Bóng chữ để nổi bật */
+    transition: all 0.3s ease;
+  }
+  
+  /* --- HIỆU ỨNG HOVER --- */
+  
+  /* 1. Zoom ảnh nền lớn lên */
+  .cat-item:hover .cat-img {
+    transform: scale(1.15);
+  }
+  
+  /* 2. Lớp phủ tối đi (Tạo cảm giác "2 lớp mờ xám" đậm hơn) */
+  .cat-item:hover::before {
+    background: rgba(0, 0, 0, 0.6); /* Đen mờ 60% */
+    /* Hoặc dùng màu xám nếu bạn thích: background: rgba(100, 100, 100, 0.7); */
+  }
+  
+  /* 3. Chữ chuyển sang trắng tinh và nổi lên */
+  .cat-item:hover .cat-label {
+    color: #ffffff;
+    transform: translate(-50%, -50%) scale(1.05); /* Phóng to chữ nhẹ */
+  }
+  
+  /* --- RESPONSIVE --- */
+  
+  /* Tablet: Vẫn giữ 4 cột hoặc giảm xuống 2 tùy ý */
+  @media (max-width: 992px) {
+    .categories-grid {
+      grid-template-columns: repeat(3, 1fr); /* Giảm xuống 3 cột */
+    }
+  }
+  
+  /* Mobile: Giảm xuống 2 cột cho dễ nhìn */
+  @media (max-width: 576px) {
+    .categories-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .cat-item {
+      aspect-ratio: 1/1; /* Mobile dùng hình vuông cho gọn */
+    }
+    .cat-label {
+      font-size: 14px;
+    }
+  }

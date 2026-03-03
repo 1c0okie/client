@@ -1,0 +1,144 @@
+/* src/pages/auth/Register/RegisterPage.css */
+
+/* Bao ngoài cùng */
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  padding: 20px;
+}
+
+/* Hộp chứa form */
+.register-container {
+  width: 100%;
+  max-width: 450px; /* Rộng hơn login một chút vì form dài hơn */
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.register-title {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 5px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.register-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+/* Form inputs gap */
+.register-form > div {
+  margin-bottom: 15px;
+}
+
+/* Nút Đăng ký */
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff424e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 16px;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: #e03a45;
+}
+
+/* --- DIVIDER --- */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.auth-divider span {
+  padding: 0 10px;
+  font-size: 13px;
+  color: #888;
+}
+
+/* --- NÚT SOCIAL --- */
+.social-login {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.btn-social {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-social:hover {
+  background-color: #f9f9f9;
+  border-color: #ccc;
+}
+
+.btn-social:active {
+  transform: scale(0.98);
+}
+
+/* Footer link */
+.auth-footer {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+}
+
+.auth-footer a {
+  color: #ff424e;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .register-container {
+    padding: 30px 20px;
+  }
+  .social-login {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,176 @@
+/* Container tổng của trang Account */
+.account-layout {
+  display: flex;
+  gap: 30px;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  align-items: flex-start;
+  min-height: 80vh;
+}
+
+/* ==============================
+   SIDEBAR (CỘT TRÁI)
+   ============================== */
+.account-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* Thông tin người dùng (Avatar + Tên) */
+.user-brief {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ee4d2d; /* Màu chủ đạo (Đỏ cam) */
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 15px;
+  box-shadow: 0 2px 4px rgba(238, 77, 45, 0.2);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info strong {
+  font-size: 16px;
+  color: #333333;
+  margin-bottom: 4px;
+}
+
+.user-info span {
+  font-size: 13px;
+  color: #888888;
+  word-break: break-all; /* Tránh email dài làm vỡ layout */
+}
+
+/* Menu điều hướng */
+.account-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0;
+}
+
+.account-nav a,
+.btn-logout {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  font-size: 15px;
+  color: #555555;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.account-nav .icon {
+  font-size: 20px;
+  margin-right: 12px;
+  color: #888888;
+  transition: color 0.3s ease;
+}
+
+/* Hiệu ứng khi hover (di chuột) */
+.account-nav a:hover,
+.btn-logout:hover {
+  background-color: #fff5f3; /* Nền nhạt khi hover */
+  color: #ee4d2d;
+}
+
+.account-nav a:hover .icon,
+.btn-logout:hover .icon {
+  color: #ee4d2d;
+}
+
+/* Trạng thái Active (Đang ở trang nào thì sáng trang đó) */
+.account-nav a.active {
+  color: #ee4d2d;
+  font-weight: 500;
+  background-color: #fff5f3;
+  border-right: 3px solid #ee4d2d;
+}
+
+.account-nav a.active .icon {
+  color: #ee4d2d;
+}
+
+/* Nút đăng xuất làm nổi bật một chút nếu cần */
+.btn-logout {
+  margin-top: 10px;
+  border-top: 1px solid #f2f2f2;
+  padding-top: 15px;
+}
+
+/* ==============================
+   NỘI DUNG CHÍNH (CỘT PHẢI)
+   ============================== */
+.account-content {
+  flex: 1; /* Chiếm toàn bộ phần không gian còn lại */
+  min-width: 0; /* Ngăn chặn lỗi flexbox tràn nội dung trên màn hình nhỏ */
+}
+
+/* ==============================
+   RESPONSIVE (MÀN HÌNH ĐIỆN THOẠI)
+   ============================== */
+@media (max-width: 768px) {
+  .account-layout {
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  .account-sidebar {
+    width: 100%;
+  }
+
+  /* Đổi menu thành dạng cuộn ngang hoặc xếp dàn hàng trên Mobile */
+  .account-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+
+  .account-nav a,
+  .btn-logout {
+    width: auto;
+    flex: 1;
+    justify-content: center;
+    padding: 10px;
+    font-size: 13px;
+    border-right: none !important;
+    border-bottom: 2px solid transparent;
+  }
+
+  .account-nav a.active {
+    border-bottom: 2px solid #ee4d2d;
+  }
+
+  .account-nav .icon {
+    display: none; /* Ẩn icon trên mobile cho gọn nếu muốn */
+  }
+
+  .btn-logout {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 10px;
+  }
+}

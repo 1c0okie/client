@@ -1,0 +1,17 @@
+.ui-badge {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background-color: #ff424e;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  height: 16px;
+  width: 16px;
+  padding: 4 4px;
+  border-radius: 16px; /* Hình con nhộng */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+}

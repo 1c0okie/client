@@ -1,0 +1,155 @@
+/* --- CONTAINER CHÍNH --- */
+.book-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  max-width: 220px;         
+  
+  /* [QUAN TRỌNG] Để thẻ này luôn cao hết khổ của cột chứa nó */
+  height: 100%; 
+  /* [TÙY CHỌN] Đặt chiều cao tối thiểu nếu cần */
+  min-height: 380px; 
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* --- PHẦN LINK (Bao gồm Ảnh + Thông tin) --- */
+.book-link {
+  text-decoration: none;
+  color: inherit;
+  
+  /* [QUAN TRỌNG] Đẩy nút 'Thêm vào giỏ' xuống đáy */
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- ẢNH SẢN PHẨM --- */
+.book-image-wrapper {
+  position: relative;
+  /* Giữ nguyên chiều cao cố định để ảnh bằng nhau */
+  height: 250px; /* Tăng lên xíu cho đẹp (cũ là 200px) */
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0; /* Không cho phép ảnh bị co lại */
+}
+
+.book-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cắt ảnh để vừa khung */
+}
+
+.discount-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ff424e;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* --- THÔNG TIN SÁCH --- */
+.book-info {
+  padding: 12px;
+  flex: 1; /* Để phần này chiếm hết khoảng trống còn lại */
+  display: flex;
+  flex-direction: column;
+}
+
+/* [QUAN TRỌNG] Xử lý Tiêu đề để không bị lệch dòng */
+.book-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0 0 4px;
+  color: #333;
+
+  /* Kỹ thuật giới hạn đúng 2 dòng, thừa sẽ hiện dấu ... */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  
+  /* Cố định chiều cao (cho dù tên ngắn 1 dòng vẫn chiếm 2 dòng) */
+  /* line-height (1.4em) * 2 dòng = 2.8em */
+  line-height: 1.4em; 
+  height: 2.8em; 
+}
+
+.book-author {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 8px;
+  
+  /* Cố định 1 dòng cho tác giả, dài quá thì cắt */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Đẩy giá xuống dưới cùng của phần info */
+.book-price-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto; /* Kỹ thuật đẩy giá xuống đáy khu vực info */
+}
+
+.current-price {
+  font-weight: bold;
+  color: #ff424e;
+  font-size: 1.1rem;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+/* --- NÚT BẤM --- */
+.bag-icon{
+  font-size: 22px;
+}
+.btn-add-cart {
+  width: 100%;
+  gap: 4px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  border: none;
+  border-top: 1px solid #eee;
+  cursor: pointer;
+
+
+  font-weight: 600;
+  color: #007bff;
+  background:
+    linear-gradient(#007bff 0 0) left / 0% 100% no-repeat
+    white;
+
+  transition:
+    background-size 0.4s ease,
+    color 0.4s ease;
+}
+.cart-text{
+  height: 22px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;   /* căn giữa dọc */
+}
+.btn-add-cart:hover {
+  background-size: 100% 100%;
+  color: white;
+}
+
