@@ -7,25 +7,25 @@ import './HeroBanner.css';
 const BANNERS = [
   {
     id: 1,
-    image: "public/default.png",
+    image: "/default.png",
     alt: "Thư viện sách khổng lồ",
     link: "/shop"
   },
   {
     id: 2,
-    image: "public/banner2.jpg",
+    image: "/banner2.jpg",
     alt: "Không gian đọc sách chill",
     link: "/shop"
   },
   {
     id: 3,
-    image: "public/banner3.jpg",
+    image: "/banner3.jpg",
     alt: "Khuyến mãi sách mới",
     link: "/shop"
   },
   {
     id: 4,
-    image: "public/banner4.jpg",
+    image: "/banner4.jpg",
     alt: "Khuyến mãi sách mới",
     link: "/shop"
   }
