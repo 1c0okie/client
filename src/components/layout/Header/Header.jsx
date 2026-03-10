@@ -68,6 +68,11 @@ const Header = () => {
             {userInfo.name}
             <div className="dropdown-menu">
               <Link className='link-profile' to="/account/profile">Hồ sơ</Link>
+              {userInfo.isAdmin && (
+                      <Link to="/admin/dashboard" className="admin-link" onClick={() => setIsDropdownOpen(false)}>
+                        Quản trị
+                      </Link>
+                    )}
               <button onClick={logout}>Đăng xuất</button>
             </div>
             <CiUser className='cart-icon'/>

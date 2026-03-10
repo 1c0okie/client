@@ -1,0 +1,67 @@
+.admin-dashboard {
+  padding: 20px;
+}
+
+.dashboard-title {
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.stat-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.stat-card .icon {
+  font-size: 35px;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.stat-card.revenue .icon { background: #d1fae5; color: #10b981; }
+.stat-card.orders .icon { background: #dbeafe; color: #3b82f6; }
+.stat-card.products .icon { background: #fef3c7; color: #f59e0b; }
+.stat-card.users .icon { background: #f3e8ff; color: #8b5cf6; }
+
+.stat-card .info p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.stat-card .info h3 {
+  margin: 5px 0 0 0;
+  font-size: 24px;
+  color: #111827;
+}
+
+.dashboard-charts {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.chart-container h3 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}

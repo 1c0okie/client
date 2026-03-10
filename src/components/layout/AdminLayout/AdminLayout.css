@@ -1,83 +1,134 @@
-/* src/components/layout/AdminLayout/AdminLayout.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Bố cục tổng: Xếp dọc (Header ở trên, Body ở dưới) */
 .admin-layout {
   display: flex;
-  min-height: 100vh;
-  background-color: #f4f6f8;
+  flex-direction: column; 
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Inter', sans-serif;
+  background-color: #f3f4f6;
+  overflow: hidden;
 }
 
-/* Sidebar */
-.admin-sidebar {
-  width: 260px;
-  background-color: #1a202c; /* Màu đen xanh hiện đại */
-  color: white;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-}
-
-.admin-logo {
+/* ==========================================
+   1. THANH TOPBAR (LUÔN ĐỨNG IM TRÊN CÙNG)
+========================================== */
+.admin-topbar {
   height: 64px;
+  min-height: 64px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px 0 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  z-index: 50; /* Z-index cao nhất để đè lên mọi thứ */
+}
+
+.topbar-left {
   display: flex;
   align-items: center;
-  padding-left: 20px;
-  border-bottom: 1px solid #2d3748;
+  gap: 20px;
+}
+
+.menu-toggle-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: #4b5563;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.menu-toggle-btn:hover { background-color: #f3f4f6; color: #111827; }
+
+.logo { display: flex; align-items: center; }
+.logo-icon { height: 35px; object-fit: contain; display: block; }
+
+.topbar-right { display: flex; align-items: center; gap: 15px; }
+.admin-greeting { color: #4b5563; font-size: 14px; }
+.admin-greeting strong { color: #111827; }
+.admin-avatar { font-size: 32px; color: #d1d5db; cursor: pointer; }
+.admin-avatar:hover { color: #4f46e5; }
+
+/* ==========================================
+   2. PHẦN THÂN (Chứa Sidebar + Main Content)
+========================================== */
+.admin-body {
+  display: flex;
+  flex: 1; /* Chiếm toàn bộ không gian dọc còn lại */
+  overflow: hidden;
+}
+
+/* SIDEBAR BÊN TRÁI */
+.admin-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease; /* Hiệu ứng thò thụt */
+  z-index: 10;
+}
+
+/* Khi đóng, giấu Sidebar sang trái */
+.admin-sidebar.closed {
+  margin-left: -260px; 
 }
 
 .admin-nav {
-  padding: 20px 0;
   flex: 1;
+  padding: 20px 15px;
+  overflow-y: auto;
+}
+
+.nav-title {
+  font-size: 12px;
+  color: #9ca3af;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  padding-left: 10px;
 }
 
 .nav-item {
-  display: block;
-  padding: 12px 20px;
-  color: #cbd5e0;
-  text-decoration: none;
-  transition: all 0.2s;
-  border-left: 3px solid transparent;
-}
-
-.nav-item:hover {
-  background-color: #2d3748;
-  color: white;
-}
-
-.nav-item.active {
-  background-color: #2d3748;
-  color: #63b3ed; /* Màu xanh sáng */
-  border-left-color: #63b3ed;
-  font-weight: bold;
-}
-
-.admin-logout {
-  padding: 20px;
-  border-top: 1px solid #2d3748;
-}
-.admin-logout a {
-  color: #fc8181;
-  text-decoration: none;
-}
-
-/* Main Content */
-.admin-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden; /* Tránh vỡ layout ngang */
-}
-
-.admin-header {
-  height: 64px;
-  background: white;
-  border-bottom: 1px solid #e2e8f0;
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Đẩy nội dung sang phải */
-  padding: 0 30px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  color: #4b5563;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s;
+  white-space: nowrap; /* Chống rớt chữ */
 }
 
-.admin-content {
+.nav-item:hover { background-color: #f3f4f6; color: #111827; }
+.nav-item.active { background-color: #e0e7ff; color: #4f46e5; font-weight: 600; }
+.nav-icon { font-size: 18px; margin-right: 12px; display: flex; align-items: center; }
+
+/* NÚT ĐĂNG XUẤT */
+.admin-logout { padding: 20px; border-top: 1px solid #e5e7eb; }
+.logout-btn {
+  width: 100%; display: flex; align-items: center; justify-content: center;
+  gap: 10px; padding: 12px; background-color: #fee2e2; color: #ef4444;
+  border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer;
+  white-space: nowrap;
+}
+.logout-btn:hover { background-color: #fecaca; }
+
+/* KHU VỰC NỘI DUNG BÊN PHẢI */
+.admin-main {
+  flex: 1; /* Tự động giãn ra lấp đầy khoảng trống khi Sidebar thụt vào */
   padding: 30px;
-  overflow-y: auto;
+  overflow-y: auto; /* Cuộn nội dung ở đây, không ảnh hưởng tới Header */
+  background-color: #f3f4f6;
 }

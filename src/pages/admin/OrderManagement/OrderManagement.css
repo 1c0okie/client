@@ -1,0 +1,155 @@
+.admin-orders-page {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn-export {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* TABS CSS */
+.admin-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.tab-btn {
+  padding: 8px 16px;
+  background: none;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tab-btn.active {
+  color: #ee4d2d;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #ee4d2d;
+}
+
+.tab-badge {
+  background: #eee;
+  color: #333;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.tab-btn.active .tab-badge {
+  background: #ee4d2d;
+  color: #fff;
+}
+
+/* TABLE CSS */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th, .admin-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.admin-table th {
+  background: #f9f9f9;
+  font-weight: 600;
+  color: #333;
+}
+
+.order-id {
+  font-family: monospace;
+  font-weight: bold;
+  color: #555;
+}
+
+.order-price {
+  font-weight: bold;
+  color: #ee4d2d;
+}
+
+/* BADGES TRẠNG THÁI */
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.status-pending { background: #fff3cd; color: #856404; }
+.status-processing { background: #cce5ff; color: #004085; }
+.status-shipping { background: #d1ecf1; color: #0c5460; }
+.status-delivered { background: #d4edda; color: #155724; }
+.status-cancelled { background: #f8d7da; color: #721c24; }
+
+/* ACTIONS */
+.action-cell {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.status-select {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  font-weight: 500;
+}
+
+.status-select:disabled {
+  background: #eee;
+  cursor: not-allowed;
+}
+
+.btn-view {
+  background: #17a2b8;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-view:hover {
+  background: #138496;
+}

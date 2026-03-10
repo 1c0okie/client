@@ -20,13 +20,10 @@ import OrderDetailPage from '../pages/main/Account/OrderDetailPage/OrderDetailPa
 import AboutPage from '../pages/main/About/AboutPage';
 import ContactPage from '../pages/main/Contact/ContactPage.jsx';
 import AuthorPage from '../pages/main/Author/AuthorPage.jsx';
+import OrderManagement from '../pages/admin/OrderManagement/OrderManagement.jsx'; // Đổi tên import
 // import AuthLayout from '../components/layout/AuthLayout';
-
-// Mockup components để test router chạy được chưa
-const Home = () => <div>Trang Chủ (Home)</div>;
-const Login = () => <div>Trang Đăng Nhập (Login)</div>;
-const BookDetail = () => <div>Chi tiết sách</div>;
-const Dashboard = () => <div>Admin Dashboard</div>;
+import Dashboard from '../pages/admin/Dashboard/AdminDashboard.jsx'; // Trang Dashboard Admin (đang làm)
+import UserManagement from '../pages/admin/UserManagement/UserManagement.jsx'; // Trang Quản lý Người dùng Admin (đang làm)
 
 const router = createBrowserRouter([
   // 1. Route cho Khách hàng (Public)
@@ -74,11 +71,11 @@ const router = createBrowserRouter([
     path: '/admin',
     element: <AdminLayout />,
     children: [
-      { path: 'dashboard', element: <div>Trang Dashboard Tổng quan (Đang làm...)</div> },
+      { path: 'dashboard', element: <Dashboard /> },
       { path: 'products', element: <ProductManagement /> },
       // Các trang khác tạm thời để trống
-      { path: 'orders', element: <div>Quản lý Đơn hàng</div> },
-      { path: 'users', element: <div>Quản lý Người dùng</div> },
+      { path: 'orders', element: <OrderManagement /> },
+      { path: 'users', element: <UserManagement /> },
     ]
   }
 ]);
